@@ -1,0 +1,30 @@
+# First Phase
+1. What Protractor Testing
+2. Protractor Setup
+3. Understanding Protractor process flow
+4. Understanding Protractor Configuration File
+Understanding Base File
+Understanding Common file
+Understanding Constant File
+Understanding Spec and Suite
+Writing a simple script
+Run the script
+Generate Report
+Access to a test project from repository
+Clear understanding on repository(Clone/Pull/Push/Merge/Commit/branches)
+Understanding package.json and NPM packages
+
+# Second Phase
+Access to our main projects
+Clone the project and clear understanding the project structure
+Create a new branch and start writing protractor scripts
+
+# Third Phase
+Understand CICD and it’s stages
+Understand Gitlab configuration file
+Understanding gitlab-runner
+Understand the pipeline
+Run all automation scripts using gitlab pipeline
+Generate report and send email
+
+The end

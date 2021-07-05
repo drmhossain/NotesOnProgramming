@@ -1,0 +1,280 @@
+
+#  https://www.protractortest.org/#/tuto...
+
+## SETUP AND INSTALLATION:
+#     download around install node.js   
+#     npm install -g protractor
+#     webdriver-manager update
+#     java -versions/install sdk
+      * at this point, to check whether setup going properly,
+      -find the path of  file conf.js as mentioned below:
+      > C:\Users\MH\AppData\Roaming\npm\node_modules\protractor\example,
+      - and go to that folder in cmd prompt and run: 
+        > conf.js
+        - if everything going ok it will show the test as a success.
+#     npm install protractor-jasmine2-screenshot-reporter --save-dev
+#     npm install -g protractor-jasmine2-html-reporter
+      * if jasmine is not installed:
+#     npm install --save-dev @types/jasmine  
+#     npm install jasmine
+#     npm install protractor-jasmine2-screenshot-reporter --save-dev
+      * screenshot installation
+## ************************##
+Demo application - http://juliemr.github.io/protractor-demo/
+
+Protractor API - https://www.protractortest.org/#/api
+prerequisite - https://www.youtube.com/playlist?list=PLhW3qG5bs-L_dgIr3hiOlnNIO8NGlXQnP
+
+Jasmine cheatsheet - https://devhints.io/jasmine
+
+VS Code extension : Protractor snippets - https://marketplace.visualstudio.com/...
+
+
+*Important Extensions for chrome:protractor recorder, Pom builder, Wappalyzer, What runs .
+* Protractor API cheatsheet: https://gist.github.com/javierarques/0c4c817d6c77b0877fda
+
+## TOOLS NEED TO INSTALL - DETAILS :
+* Selenium standalone server
+     - further reading: https://www.tutorialspoint.com/protractor/protractor_writing_the_first_test.htm
+     to run the server on our local machine, 
+     we need to install standalone selenium server. 
+     The prerequisite to install standalone selenium server
+     is JDK (Java Development Kit). We must have JDK installed 
+     on our local machine. We can check it by running the following 
+     command from command line −
+#    java -versions
+* Node.js : Download and install from Node.js webpage
+#     Protractor: Install globally using npm
+#     npm install -g protractor
+#     Jasmine : 
+      It is the default test framework for Protractor. When you install Protractor,
+      you will get Jasmine 2.x version with it. We do not need to get it installed separately. 
+    - to know it is install: npm view jasmine, or npm view jasmine version
+    - anyway, if it is not install:  # (Global installation) - install it with the command
+#     npm install jasmine
+      We may have to install the dependency file for jasmine; otherwise, 
+      may face import error for 'describe', 'it', 'expect' statements. if so install
+#     npm install --save-dev @types/jasmine  
+
+* Selenium server and ChromeDriver: using following command -
+#     webdriver-manager update
+* for Reporting:
+#     npm install -g protractor-jasmine2-html-reporter
+#     npm install protractor-jasmine2-screenshot-reporter --save-dev
+
+   ======================
+* Command to run : from project folder
+#     protractor conf.js   
+
+## Important: MUST LEARN
+* Basic of Angular.js programming
+* Protractor/Jasmine : Imp> Locator
+* JavaScript 
+
+## FILES REQUIRED BY PROTRACTOR:##
+- Protractor needs the following two files to run −
+
+# 1. Spec or test file
+It is one of the important files to run Protractor. In this file, we will write our actual test code. The test code is written by using the syntax of our testing framework.
+For example, if we are using Jasmine framework, then the test code will be written by using the syntax of Jasmine. This file will contain all the functional flows and assertions of the test.
+In simple words, we can say that this file contains the logic and locators to interact with the application.
+
+Example
+The following is a simple script, TestSpecification.js, having the test case to navigate to an URL and check for the page title −
+
+> //TestSpecification.js file
+describe('Protractor Demo', function() {
+   it('to check the page title', function() {
+      browser.ignoreSynchronization = true;
+      browser.get('https://www.tutorialspoint.com/tutorialslibrary.htm');
+      browser.driver.getTitle().then(function(pageTitle) {
+         expect(pageTitle).toEqual('Free Online Tutorials and Courses');
+      });
+   });
+});
+> Code Explanation
+The code of above specification file can be explained as follows −
+* Browser
+It is the global variable created by Protractor to handle all the
+browser level commands. It is basically a wrapper around an instance
+of WebDriver. browser.get() is a simple Selenium method that
+will tell Protractor to load a particular page.
+
+* describe and it
+Both are the syntaxes of Jasmine test framework. The ’Describe’ 
+is used to contain the end to end flow of our test case whereas 
+‘it’ contains some of the test scenarios. We can have multiple 
+‘it’ blocks in our test case program.
+
+* Expect − 
+It is an assertion where we are comparing the web page title 
+with some predefined data.
+
+* ignoreSynchronization − 
+It is a tag of browser which is used when we will try to test 
+non-angular websites. Protractor expects to work with angular 
+websites only but if we want to work with non-angular websites, 
+then this tag must be set to “true”.
+
+# 2. Configuration File:
+As the name suggests, this file provides explanations for all 
+the Protractor configuration options. It basically tells
+Protractor the following −
+-Where to find the test or specs files
+-Which browser to pick
+-Which testing framework to use
+-Where to talk with the Selenium Server
+* Example:
+The following is the simple script, config.js, having the test
+
+***************
+> // config.js file
+exports.config = {
+   directConnect: true,
+
+-    // Capabilities to be passed to the webdriver instance.
+   capabilities: {
+      'browserName': 'chrome'
+   },
+
+-    // Framework to use. Jasmine is recommended.
+   framework: 'jasmine',
+
+-    // Spec patterns are relative to the current working directory when
+-    // protractor is called.
+   specs: ['TestSpecification.js'],
+*******************
+
+> Code Explanation:
+The code of above configuration file having three basic parameters, can be explained as follows −
+
+- Capabilities Parameter
+This parameter is used to specify the name of the browser. It can be seen in the following code block of conf.js file −
+
+exports.config = {
+   directConnect: true,
+
+-    // Capabilities to be passed to the webdriver instance.
+   capabilities: {
+      'browserName': 'chrome'
+},
+As seen above, the name of the browser given here is ‘chrome’
+which is by default browser for Protractor. We can also change 
+the name of the browser.
+
+- Framework Parameter
+This parameter is used to specify the name of the testing framework.
+ It can be seen in the following code block of config.js file −
+
+exports.config = {
+   directConnect: true,
+
+--   // Framework to use. Jasmine is recommended.
+   framework: 'jasmine',
+Here we are using ‘jasmine’ test framework.
+
+- Source File Declaration Parameter
+This parameter is used to specify the name of the source file declaration. 
+It can be seen in the following code block of conf.js file −
+
+exports.config = {
+   directConnect: true,
+-   // Spec patterns are relative to the current working 
+   directory when protractor is called.
+   specs: ['TsetSpecification.js'],
+As seen above, the name of the source file declaration given here is ‘TestSpecification.js’. 
+It is because, for this example we have created the specification file with name TestSpecification.js.
+## ***************************** ##
+
+## SCREENSHOT:
+* Resource: https://www.npmjs.com/package/protractor-jasmine2-screenshot-reporter
+* npm install: npm install protractor-jasmine2-screenshot-reporter --save-dev
+* copy and paste below code above 'exports.config = {' line of  the conf.js file -
+      var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
+
+      var reporter = new HtmlScreenshotReporter({
+      dest: 'target/screenshots',
+      filename: 'my-report.html'
+      });
+* Below this existing code -
+  ' jasmineNodeOpts: {
+    defaultTimeoutInterval: 9000
+  },'
+* paste this code -
+/ Setup the report before any tests start
+  beforeLaunch: function() {
+    return new Promise(function(resolve){
+      reporter.beforeLaunch(resolve);
+    });
+  },
+
+ / Assign the test reporter to each running instance
+  onPrepare: function() {
+    jasmine.getEnv().addReporter(reporter);
+  },
+
+  / Close the report after all tests finish
+  afterLaunch: function(exitCode) {
+    return new Promise(function(resolve){
+      reporter.afterLaunch(resolve.bind(this, exitCode));
+    });
+  }
+## ********************************
+
+## JASMINE ALLURE REPORTS PLUGIN:
+* Resource:  https://www.npmjs.com/package/jasmine-allure-reporter
+* Installation command:  npm i -g jasmine-allure-reporter
+* Installation command for allure commandline tool: npm i -g allure-commandline
+## HTML REPORT AND SCREENSHOT GENERATION:
+* Resource:  https://www.npmjs.com/package/protractor-html-reporter-2
+* Installation command:  npm i protractor-html-reporter-2
+* Installation command for allure commandline tool: npm i -g allure-commandline
+## *************************************************************
+## UPLOAD TO github:
+
+> TO BE DONE.......
+  Tutorial No: 13
+
+## *************************************************************
+##  HOW TO RUN PROTRACTOR FROM JENKINS :
+
+* Resource:  https://www.jenkins.io/download/
+* Running jenkins: 
+  Download from above link
+  Go to cmd and cd to jenkins.war file directory
+  From there run this command: 
+        java -jar jenkins.war --httpPort=9191
+  mh:'--enable-future-java' requires for java version conflict. jenkins run only on 8 and 11.
+        documentation source:  https://www.jenkins.io/doc/administration/requirements/java/
+
+
+## *************************************************************
+
+
+#REFERENCEs:
+* this project based on Raghav Pal you tube video: tutorial:  
+https://www.youtube.com/playlist?list=PLhW3qG5bs-L_dgIr3hiOlnNIO8NGlXQnP
+* Protractor api: https://www.protractortest.org/#/api
+* Using locator:  https://www.protractortest.org/#/locators
+* jasmine cheatsheet: https://devhints.io/jasmine
+* youtube video: https://www.youtube.com/watch?v=D6qPDww2X8k
+    - code link for above video: https://github.com/techsithgit/ng5-jasmin-karma-test
+* https://www.toolsqa.com/protractor/protractor-typescript/
+* https://www.toolsqa.com/protractor/jasmine-test/
+* https://www.toolsqa.com/protractor/protractor-test-script/    
+
+# USEFUL TOOLS:
+* Chrome extensions: 
+   * Selenium IDE > 
+         Automatically identify locators while clicking the elements 
+         and record these in a dynamic way 
+   * Protracator recorder 
+         When click the element it copy 
+         the locator of the selected element
+         and later it can be pasted in the code editor.
+   * Wappalyzer: Software type identifier
+   * Whatruns: Software type identifier
+
+* Protractor cheat sheet:  https://gist.github.com/javierarques/0c4c817d6c77b0877fda
+
+
