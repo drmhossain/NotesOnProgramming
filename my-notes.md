@@ -1,0 +1,66 @@
+Date: 2020-08-15   Time: 04:17:59
+```markdown
+
+--------------------------------------------------------------------
+START: SNIPPET FOR PLAIN TEXT(.TXT),MARKDOWN FILES	Date: 2020-08-15	
+--------------------------------------------------------------------
+{
+	// Place your snippets for plaintext here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	// "File Header": {
+	// 	"prefix": "header",
+	// 	"description": "Output a file header with the file name and date",
+	// 	"body": [
+	// 		"title: $TM_FILENAME",
+	// 		"date: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR: $CURRENT_MINUTE: $CURRENT_SECOND",
+	// 	]
+	// }
+	// HERE IS THE MODIFICATION OF ABOVE CODE FOR ONLY TO INSERT DATE TIME:
+	"Insert DateTime": {
+		"prefix": "datetime",
+		"description": "Output current date and time",
+		"body": [
+			"Date: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE \nTime: $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+		]
+	},
+
+	
+	"Insert date": {
+	"prefix": "date",
+	"description": "Output current date",
+	"body": [
+		"Date: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+	]
+},
+
+	"Insert time": {
+	"prefix": "time",
+	"description": "Output current time",
+	"body": [
+		"Time: $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+	]
+},
+	"Insert headerStart headerEnd": {
+	"prefix": "headerStartEnd",
+	"description": "Output header start and header end",
+	"body": [
+		"-----------------------------------------------------------------",
+		"${1:HEADER}",
+		"-----------------------------------------------------------------",
+		"${2:content}",
+		"---------------------------------END-----------------------------"
+	]
+}
+
+```

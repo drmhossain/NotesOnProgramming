@@ -1,0 +1,59 @@
+How to use command prompt to put a Windows computer to sleep
+Are you missing the “Sleep” shortcut on your Windows computer? 
+Here is an easy way to put your computer to “sleep” using the Command Prompt.
+
+Especially for laptops, “Sleep” is a good standby mode when you are not using
+ the system for quite some time. It saves battery and also keeps the system cool,
+  while keeping it just enough active that whenever you hit a key, everything 
+  comes back to life again. But, sometimes, the graphical menu option to put your 
+  system to sleep may disappear and become hard to find.
+
+Here is a quick fire and sure way to get your computer to sleep using the 
+Command Prompt. Don’t worry, these set of commands are not rocket science 
+and anyone who can point and click or copy/paste their way through Windows 
+can easily do this.
+
+Pre-requisites
+Before you go ahead and especially if you are on a laptop (i.e., not a desktop PC), 
+you need to turn off your computer’s “Hibernation” mode. Otherwise, when you use the 
+command to put it to sleep, your laptop may go into “Hibernate”, which is not what
+ you want.
+
+Open an Administration Command Prompt. The simple way in any Windows Operating System 
+is to hit the “WINDOWS” key once and start typing “CMD”. Right click on the 
+“Command Prompt” item that is displayed and select “Run as Administrator”. 
+Accept the elevation when prompted. Note that if you are using Windows 8 or above, 
+you will need to be in the “Tiles” desktop and not the good old icons and start menu 
+desktop for this to work. Anyway, once you have your administration Command Prompt, 
+go ahead and run the below command (this will turn off the hibernation option,
+ you can re-enable it again anytime):
+
+Copy Code
+* C:\> POWERCFG /HIBERNATE OFF
+If you do a “ON” instead of the “OFF” in the command above, it will turn 
+hibernation back ON.
+
+NOTE: You do not need to repeat this command the next time unless you have
+ turned hibernation back on in between.
+
+Put It To Sleep Now
+If you want to immediately sleep your system, still in the Administration 
+Command Prompt, run this:
+
+Copy Code
+* C:\> RUNDLL32.EXE powrprof.dll,SetSuspendState 0,1,0
+Remember not to add any extra spaces other than what is shown above 
+(copy paste it if you need). Your system will go to sleep IMMEDIATELY on
+ running the above command.
+
+Set Up A Shortcut
+To repeat the process any time, set up a shortcut on your desktop.
+
+Right-click in any blank area of your desktop
+Choose New > Shortcut
+Copy/paste the above command (“RUNDLL ….. 0,1,0”)
+Click Next
+For the name of the shortcut, enter “Put to Sleep Immediately”
+Click Finish
+That’s it. Now anytime you need to, simply double click on this icon and your 
+computer will instantly sleep.
