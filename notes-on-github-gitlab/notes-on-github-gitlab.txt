@@ -1,0 +1,39 @@
+## GITHUB-GITLAB INTIGRATION/ USE BOTH FOR SAME REPOSITORY/PROJECT:
+* ref: https://steveperkins.com/migrating-projects-from-github-to-gitlab/
+Option 1: Create Separate Named Remotes
+If you would like to encourage public contributions to your project, both from GitLab and GitHub, then you’ll want to create separate named remotes for each.  If GitLab is your primary host, then you would add a remote for GitHub like this:
+
+git remote add github https://github.com/user/repo.git
+
+Now, you can interact with GitLab or GitHub specifically.  You know that “origin” name, that 99% of git users type without thinking about it?  Well, that refers to your primary host, GitLab.  This new “github” remote name refers to GitHub (and you’re free to use any other name you like instead, it’s only for human-readability).
+
+To push changes to either repository, use:
+
+git push origin <branch>   (GitLab)
+git push github <branch>   (GitHub)
+
+You would pull down changes in similar fashion:
+
+git pull origin <branch>   (GitLab)
+git pull github <branch>   (GitHub)
+
+As you do work on your GitLab primary host, you would just periodically update the GitHub mirror by pushing the “master” branch there.  Conversely, if someone in the community submits a pull request to your GitHub mirror, then the workflow would look like:
+
+Review and merge the pull request on GitHub
+Pull “master” into your local workspace
+Push “master” to GitLab
+This is definitely a bit more manual shuffling than you would have with a single remote.  However, it gives you maximum flexibility, and after a time or two it becomes automatic.
+
+Option 2: Overload Origin with Both Remotes
+Not every project seeks out public contributions.  Many of the projects on my GitHub account are basically “porfolio” items, there for resume purposes, and I specifically do NOT want pull requests.  If your project is a one-developer affair, then you can take a much simpler route to a GitHub mirror:
+
+git remote set-url –add origin https://github.com/user/repo.git
+
+You don’t see this trick everyday, but in git the relationship between a remote name and remote URL is not necessarily one-to-one!  Git will quite happily map a remote name to multiple repository URL’s.  Here, we’re overloading the default “origin” name to reference both GitLab and GitHub.  So the normal…
+
+git push origin <branch>
+git pull origin <branch>
+
+… will push to (or pull from) both your primary GitLab host and your GitHub mirror!
+
+This solution may be a little TOO clever for large team situations, but for projects on which you’re the sole developer it is probably the most convenient way to 

@@ -1,7 +1,7 @@
 --------------------------------------------
 MH: VERY IMP! AFTER PUSH COMMAND CONTINUING SYNC BUT REAL UPDATE WAS SEEN IN GITHUB
 * THESE 2 CMD CORRECT THE PROBLEM
-git config --global credential.helper wincred
-git push origin master
+> git config --global credential.helper wincred
+> git push origin master
 ----------------------------------------------
 Git repository name: ProtractorGitPractice

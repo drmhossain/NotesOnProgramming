@@ -1,30 +1,64 @@
 # First Phase
-1. What Protractor Testing
 2. Protractor Setup
 3. Understanding Protractor process flow
 4. Understanding Protractor Configuration File
-Understanding Base File
-Understanding Common file
-Understanding Constant File
-Understanding Spec and Suite
-Writing a simple script
-Run the script
-Generate Report
-Access to a test project from repository
-Clear understanding on repository(Clone/Pull/Push/Merge/Commit/branches)
-Understanding package.json and NPM packages
+5. Understanding Base File
+1. What Protractor Testing
+6. Understanding Common file
+7. Understanding Constant File
+8. Understanding Spec and Suite
+9. Writing a simple script
+10. Run the script
+11. Generate Report
+12. Access to a test project from repository
+13. Clear understanding on repository(Clone/Pull/Push/Merge/Commit/branches)
+14. Understanding package.json and NPM packages
 
 # Second Phase
-Access to our main projects
-Clone the project and clear understanding the project structure
-Create a new branch and start writing protractor scripts
+15. Access to our main projects
+16. Clone the project and clear understanding the project structure
+17. Create a new branch and start writing protractor scripts
 
 # Third Phase
-Understand CICD and it’s stages
-Understand Gitlab configuration file
-Understanding gitlab-runner
-Understand the pipeline
-Run all automation scripts using gitlab pipeline
-Generate report and send email
+18. Understand CICD and it’s stages
+19. Understand Gitlab configuration file
+20. Understanding gitlab-runner
+21. Understand the pipeline
+22. Run all automation scripts using gitlab pipeline
+23. Generate report and send email
 
 The end
+==========================
+## email from kamrul hasan:
+Kamrul Hasan <khasan@ael-bd.com>
+Jun 21, 2021, 7:40 AM
+to Asif, me
+
+Yes bhaia,
+I have created credentials for choto chacha  at sprint environment. The login information is
+
+**For Identity Verifier
+URL: https://bkbapp.celloscope.net/onboarding-registration
+User ID: mosarraf.verifier
+Password: asdf1234
+
+For Central Approver
+URL: https://bkbapp.celloscope.net/onboarding-registration
+User ID: mosarraf.approver
+Password: asdf1234
+
+Yes we can involve choto chacha to our project. To start with Protractor E2E test, the first task would be,
+1) Read the document that I will give the link below 
+2) Get prepare the environment for protractor automation as per document
+3) Create a simple protractor project OR download the sample project from the given link at the document
+4) Write a single script that a user can login to onboarding portal by valid user ID and password that I have given above (Use any one of them)
+5) Run the script
+
+Document link: 
+https://docs.google.com/document/d/19O6hK2xoUzDEYm2EElZv0zS9Rn1UkpIx95XTL8kwvD0/edit#heading=h.c2y5zijs2arf
+
+Once this task is complete, we can add choto chacha to our gitlab project or 
+before that we can add the 
+* protractor test group of our gitlab so that 
+he can join us remotely with https://gitlab.celloscope.net
+==========================
