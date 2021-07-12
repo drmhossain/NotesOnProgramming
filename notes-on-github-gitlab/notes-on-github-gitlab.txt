@@ -37,3 +37,6 @@ git pull origin <branch>
 … will push to (or pull from) both your primary GitLab host and your GitHub mirror!
 
 This solution may be a little TOO clever for large team situations, but for projects on which you’re the sole developer it is probably the most convenient way to 
+
+## git command line application
+* https://cli.github.com/
