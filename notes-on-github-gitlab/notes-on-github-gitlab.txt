@@ -1,3 +1,21 @@
+1. mkdir repo && cd repo
+2. git remote add origin /path/to/origin.git
+3. git add .
+4. git commit -m "initial commit"
+5. git push origin master
+====================
+Git Branch:
+git branch // will show existing br name
+git branch <file name>//create br
+git checkout <file name>//move to the br
+git checkout -b <file name>// create br with move to the br
+==================
+update local branch with repository branch ie, remote br:
+in the cmd prompt -
+1. >git checkout <branch name> //promt will make the branch current
+2. >git fetch
+3. >git reset --hard origin/<remote branch name>
+
 ## GITHUB-GITLAB INTIGRATION/ USE BOTH FOR SAME REPOSITORY/PROJECT:
 * ref: https://steveperkins.com/migrating-projects-from-github-to-gitlab/
 Option 1: Create Separate Named Remotes
@@ -40,3 +58,9 @@ This solution may be a little TOO clever for large team situations, but for proj
 
 ## git command line application
 * https://cli.github.com/
+
+## gitGIT RESOURCES:
+- https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud
+ - https://www.freecodecamp.org/news/best-git-tutorial/
+ - http://git-scm.com
+ - https://ohshitgit.com/
